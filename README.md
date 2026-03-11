@@ -59,3 +59,16 @@ Tras completar la configuración y ejecución de las auditorías con **Nessus Ex
 * **Valor estratégico de Nessus Expert:** confirmo que las capacidades de análisis de superficie externa y IaC convierten a esta herramienta en una solución robusta para entornos modernos, yendo mucho más allá del escaneo de red tradicional.
 
 Este proyecto consolida mi capacidad para desplegar soluciones de seguridad complejas, interpretar datos técnicos y documentar procesos de auditoría siguiendo estándares profesionales.
+
+
+---
+
+## Contacto y Portfolio
+
+Si tienes alguna pregunta sobre este proyecto o quieres conectar para hablar sobre ciberseguridad y gestión de vulnerabilidades, no dudes en contactarme:
+
+* **LinkedIn:** [Victor Suárez Sánchez-Pascuala](https://www.linkedin.com/in/victorssp/)
+* **GitHub:** [Victor875](https://github.com/Victor875)
+
+---
+*Este proyecto fue realizado como parte de mi laboratorio de especialización en herramientas de seguridad ofensiva y defensiva.*
