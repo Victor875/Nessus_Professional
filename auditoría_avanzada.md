@@ -16,10 +16,12 @@ Para permitir que Nessus consulte el registro del sistema, sigo estos pasos:
 4. Establezco el Tipo de inicio en Automático y hago clic en el botón Iniciar.
 5. Comando de verificación: también puedo validarlo rápidamente desde PowerShell: `Get-Service RemoteRegistry`
 
-![Estado del servicio Remote Registry](Deshabilitar_UAC.jpg)
+![Estado del servicio Remote Registry](Comprobar_servicio_remoto.jpg)
 
 ### B. Reglas de Firewall (SMB)
 Habilito el tráfico a través del puerto **445 (TCP)**. Este puerto es esencial para la comunicación **SMB (Server Message Block)**, que es el túnel por el cual Nessus inyectará las credenciales.
+
+![Reglas de Firewall (SMB)](conf_firewall.jpg)
 
 ### C. Bypass de UAC para Cuentas Locales
 Como utilizo una cuenta de administrador local, aplico este cambio en el registro mediante PowerShell para permitir que la cuenta administrativa local gestione las consultas remotas de Nessus:
@@ -27,7 +29,7 @@ Como utilizo una cuenta de administrador local, aplico este cambio en el registr
 ```powershell
 New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy" -Value 1 -PropertyType DWord -Force
 ```
-![Estado del servicio Remote Registry](Deshabilitar_UAC.jpg)
+![ByPass de UAC](Deshabilitar_UAC.jpg)
 
 ### 2. Auditoría basada en el Estándar CIS
 En lugar de un escaneo genérico, cargo una política de cumplimiento basada en el **CIS Windows 11 Enterprise Benchmark**. 
