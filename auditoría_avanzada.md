@@ -8,10 +8,15 @@ Para que el escaneo sea exitoso y Nessus pueda "entrar" en el sistema operativo,
 
 ### A. Configuración de Servicios
 * **Remote Registry:** establezco el servicio en modo **Automático** e **Iniciado**. Esto permite a Nessus realizar consultas sobre el registro del sistema para verificar parches y configuraciones.
-* **Comando de verificación:** utilizo PowerShell para confirmar que está activo:
-    `Get-Service RemoteRegistry`
 
-![Estado del servicio Remote Registry](service_status_remote.jpg)
+Para permitir que Nessus consulte el registro del sistema, sigo estos pasos:
+1. Presiono la combinación de teclas Win + R, escribo services.msc y pulso Enter.
+2. Localizo el servicio llamado Registro remoto (Remote Registry).
+3. Hago clic derecho sobre él y selecciono Propiedades.
+4. Establezco el Tipo de inicio en Automático y hago clic en el botón Iniciar.
+5. Comando de verificación: también puedo validarlo rápidamente desde PowerShell: `Get-Service RemoteRegistry`
+
+![Estado del servicio Remote Registry](Deshabilitar_UAC.jpg)
 
 ### B. Reglas de Firewall (SMB)
 Habilito el tráfico a través del puerto **445 (TCP)**. Este puerto es esencial para la comunicación **SMB (Server Message Block)**, que es el túnel por el cual Nessus inyectará las credenciales.
@@ -22,6 +27,8 @@ Como utilizo una cuenta de administrador local, aplico este cambio en el registr
 ```powershell
 New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy" -Value 1 -PropertyType DWord -Force
 ```
+![Estado del servicio Remote Registry](Deshabilitar_UAC.jpg)
+
 ### 2. Auditoría basada en el Estándar CIS
 En lugar de un escaneo genérico, cargo una política de cumplimiento basada en el **CIS Windows 11 Enterprise Benchmark**. 
 * **Objetivo:** evaluar el nivel de *Hardening* del equipo frente a un estándar de la industria.
