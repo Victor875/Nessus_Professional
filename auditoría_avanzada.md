@@ -30,16 +30,3 @@ Como utilizo una cuenta de administrador local, aplico este cambio en el registr
 New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy" -Value 1 -PropertyType DWord -Force
 ```
 ![ByPass de UAC](Deshabilitar_UAC.jpg)
-
-### 2. Auditoría basada en el Estándar CIS
-En lugar de un escaneo genérico, cargo una política de cumplimiento basada en el **CIS Windows 11 Enterprise Benchmark**. 
-* **Objetivo:** evaluar el nivel de *Hardening* del equipo frente a un estándar de la industria.
-* **Proceso:** Nessus verifica automáticamente cientos de configuraciones, como la longitud mínima de contraseñas, servicios innecesarios activos y políticas de auditoría de eventos.
-
-
-
-### 3. Análisis de Resultados Avanzados
-A diferencia del escaneo básico, esta prueba revela vulnerabilidades críticas que no son detectables a través de la red, como:
-* Parches de seguridad (KBs) faltantes en el sistema operativo.
-* Configuraciones de red inseguras a nivel de protocolo (ej. NetBIOS activo).
-* Software de terceros desactualizado con exploits conocidos.
