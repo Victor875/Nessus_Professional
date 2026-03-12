@@ -6,7 +6,7 @@ Para elevar el nivel de este laboratorio, decido no limitarme a un escaneo de re
 
 Para que el escaneo sea exitoso y Nessus pueda "entrar" en el sistema operativo, realizo las siguientes configuraciones críticas en el host objetivo:
 
-### A. Configuración de Servicios
+### 1. Configuración de Servicios
 * **Remote Registry:** establezco el servicio en modo **Automático** e **Iniciado**. Esto permite a Nessus realizar consultas sobre el registro del sistema para verificar parches y configuraciones.
 
 Para permitir que Nessus consulte el registro del sistema, sigo estos pasos:
@@ -16,31 +16,41 @@ Para permitir que Nessus consulte el registro del sistema, sigo estos pasos:
 4. Establezco el Tipo de inicio en Automático y hago clic en el botón Iniciar.
 5. Comando de verificación: también puedo validarlo rápidamente desde PowerShell: `Get-Service RemoteRegistry`
 
-![Estado del servicio Remote Registry](img/caso_práctico/Comprobar_servicio_remoto.jpg)
+![Estado del servicio Remote Registry](../img/caso_práctico/Comprobar_servicio_remoto.jpg)
 
-### B. Reglas de Firewall (SMB)
+### 2. Reglas de Firewall (SMB)
 Habilito el tráfico a través del puerto **445 (TCP)**. Este puerto es esencial para la comunicación **SMB (Server Message Block)**, que es el túnel por el cual Nessus inyectará las credenciales.
 
-![Reglas de Firewall (SMB)](img/caso_práctico/conf_firewall.jpg)
+![Reglas de Firewall (SMB)](../img/caso_práctico/conf_firewall.jpg)
 
-### C. Bypass de UAC para Cuentas Locales
+### 3. Bypass de UAC para Cuentas Locales
 Como utilizo una cuenta de administrador local, aplico este cambio en el registro mediante PowerShell para permitir que la cuenta administrativa local gestione las consultas remotas de Nessus:
 
 ```powershell
 New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy" -Value 1 -PropertyType DWord -Force
 ```
-![ByPass de UAC](img/caso_práctico/Deshabilitar_UAC.jpg)
+![ByPass de UAC](../img/caso_práctico/Deshabilitar_UAC.jpg)
 
 ## 2. Configuración en Nessus Expert
 
 Una vez preparado el sistema operativo, procedo a configurar la tarea de escaneo en la consola de Nessus, transformando un análisis básico en una auditoría profesional.
+
+### Paso 0: Configuración General (Settings) - El Paso Más Importante
+Antes de definir qué vamos a auditar, debo establecer los parámetros de conexión. Sin esta base, Nessus no podrá alcanzar los servicios que habilitamos en el paso 1:
+
+* **Name:** asigno un nombre identificativo que refleje el estándar usado, por ejemplo: `Auditoría Windows 11 - CIS v4.0.0`.
+* **Targets:** introduzco la dirección IP del equipo objetivo. Es vital que sea la IP estática configurada previamente para asegurar que la comunicación no se pierda durante las ráfagas de paquetes del escaneo.
+* **Discovery:** configuro el escaneo para que realice una detección de servicios exhaustiva. Esto garantiza que Nessus localice el puerto **445 (SMB)** y el servicio de **Registro Remoto**, que son las puertas de entrada para nuestra auditoría con credenciales.
+
+![Configuración general del escaneo en Nessus](../img/caso_práctico/Configuración_general.jpg)
+![Configuración general del escaneo en Nessus](../img/caso_práctico/Conf_discovery.jpg)
 
 ### Paso 1: Gestión de Credenciales
 * En la configuración del escaneo, accedo a la pestaña **Credentials** > **Windows**.
 * Configuro el usuario administrativo y la contraseña de mi equipo.
 * **Authentication Method:** selecciono el método **Password** para permitir que Nessus realice la inyección de credenciales mediante SMB.
 
-![Configuración de credenciales de administrador en Nessus](img/caso_práctico/Configuración_credenciales.jpg)
+![Configuración de credenciales de administrador en Nessus](../img/caso_práctico/Configuración_credenciales.jpg)
 
 ### Paso 2: Auditoría basada en el Estándar CIS
 En lugar de un escaneo genérico, cargo una política de cumplimiento basada en el benchmark actualizado **CIS Microsoft Windows 11 Stand-alone v4.0.0 L1**.
@@ -48,7 +58,7 @@ En lugar de un escaneo genérico, cargo una política de cumplimiento basada en 
 * **Objetivo:** evaluar el nivel de *Hardening* del equipo frente a un estándar de la industria altamente riguroso.
 * **Proceso:** Nessus verifica automáticamente cientos de configuraciones, como la longitud mínima de contraseñas, servicios innecesarios activos y políticas de auditoría de eventos específicas para la versión más reciente de Windows 11.
 
-![Selección de política de cumplimiento CIS v4.0.0](img/caso_práctico/Política_compilance.jpg)
+![Selección de política de cumplimiento CIS v4.0.0](../img/caso_práctico/Política_compilance.jpg)
 
 
 ### 3. Análisis de Resultados Avanzados
