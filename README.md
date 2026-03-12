@@ -5,7 +5,7 @@
 
 Realizo una auditoría de seguridad utilizando Nessus Expert sobre un entorno controlado en Windows 11. Mi objetivo es demostrar la capacidad de identificar, clasificar y priorizar vulnerabilidades tanto en activos internos como en la superficie de ataque externa. Esta práctica simula un flujo de trabajo real de un analista de ciberseguridad, desde la fase de reconocimiento hasta la propuesta de remediación.
 
-## ❓¿Qué es Nessus Expert?
+## ¿Qué es Nessus Expert?
 Nessus Expert es una de las herramienta de escaneo de vulnerabilidades más confiable del mercado. A diferencia de las versiones tradicionales, esta variante está diseñada para la superficie de ataque moderna. No solo analiza activos de red clásicos (servidores, PCs), sino que amplía su alcance a la infraestructura en la nube, el escaneo de aplicaciones web y la auditoría de Infraestructura como Código (IaC). Es la solución que nos permite a nosotros como analistas de seguridad obtener una visibilidad externa e interna completa bajo una misma consola.
 
 ## ¿Por qué utilizar Nessus Expert?
