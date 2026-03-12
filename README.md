@@ -39,7 +39,7 @@ Para replicar este entorno de auditoría en **Windows 11**, sigo estos pasos de 
 Para profundizar en las capacidades de **Nessus Expert**, he realizado una auditoría de "Caja Blanca" siguiendo los estándares de hardening de la industria. 
 
 * **Metodología detallada:** puedes consultar el paso a paso técnico, la configuración de Windows y los resultados en mi guía especializada:
-  👉 **[Guía de Auditoría con Credenciales y Compliance](auditoría_avanzada.md)**
+  👉 **[Guía de Auditoría con Credenciales y Compliance](/caso_práctico/auditoría_avanzada.md)**
 
 > **Nota:** esta prueba demuestra la transición de un escaneo de red básico a una auditoría de cumplimiento profesional.
 
