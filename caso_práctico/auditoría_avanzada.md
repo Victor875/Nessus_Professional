@@ -80,6 +80,7 @@ Esta es la parte más detallada de la práctica, donde veo el resultado de la po
 * **Puntos de control:** los resultados muestran checks en **verde** (configuración segura), **amarillo** (advertencias) y **rojo** (fallos de configuración que requieren atención inmediata).
 * **Detalles de remediación:** al hacer clic en un fallo, Nessus me indica exactamente qué valor de registro o directiva de grupo debo cambiar para cumplir con el estándar.
 
+![Panel de vulnerabilidades detectadas](../img/caso_práctico/cumplimiento2.jpg)
 ![Dashboard de cumplimiento CIS Windows 11](../img/caso_práctico/cumplimiento.jpg)
 
 ### 📊 C. Resumen del Estado de Seguridad
