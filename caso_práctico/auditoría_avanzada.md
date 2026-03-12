@@ -61,12 +61,28 @@ En lugar de un escaneo genérico, cargo una política de cumplimiento basada en 
 ![Selección de política de cumplimiento CIS v4.0.0](../img/caso_práctico/Política_compilance.jpg)
 
 
-### 3. Análisis de Resultados Avanzados
-A diferencia del escaneo básico, esta prueba revela vulnerabilidades críticas que no son detectables a través de la red, como:
-* Parches de seguridad (KBs) faltantes en el sistema operativo.
-* Configuraciones de red inseguras a nivel de protocolo (ej. NetBIOS activo).
-* Software de terceros desactualizado con exploits conocidos.
+## 3. Ejecución y Análisis de Resultados
 
+Tras lanzar el escaneo, monitorizo la pestaña de hallazgos. Una auditoría con credenciales exitosa revela información crítica que un escaneo básico ignoraría, dividiéndose en dos grandes categorías:
+
+### A. Vulnerabilidades y Parches (VPR)
+Gracias a las credenciales, Nessus puede listar todos los programas instalados y compararlos con su base de datos.
+* **hallazgos:** observo los parches de seguridad faltantes en el sistema operativo y en software de terceros (como navegadores o runtimes).
+* **priorización:** utilizo la métrica VPR para identificar qué vulnerabilidades tienen más probabilidad de ser explotadas en el mundo real.
+
+![Panel de vulnerabilidades detectadas](../img/caso_practico/resultados_vulnerabilidades.jpg)
+
+### B. Análisis de Cumplimiento (Compliance)
+Esta es la parte más detallada de la práctica, donde veo el resultado de la política **CIS v4.0.0**.
+* **puntos de control:** los resultados muestran checks en **verde** (configuración segura), **amarillo** (advertencias) y **rojo** (fallos de configuración que requieren atención inmediata).
+* **detalles de remediación:** al hacer clic en un fallo, Nessus me indica exactamente qué valor de registro o directiva de grupo debo cambiar para cumplir con el estándar.
+
+![Dashboard de cumplimiento CIS Windows 11](../img/caso_practico/resultados_compliance.jpg)
+
+### C. Resumen del Estado de Seguridad
+Finalmente, analizo el gráfico circular que resume el porcentaje de cumplimiento. Un sistema recién instalado sin *Hardening* suele presentar un alto número de fallos en este apartado, lo que justifica la necesidad de esta auditoría.
+
+![Gráfico resumen de la auditoría](../img/caso_practico/grafico_resumen.jpg)
 ## 4. Conclusión de la Práctica
 
 La ejecución de esta auditoría avanzada bajo el estándar **CIS v4.0.0** me ha permitido extraer las siguientes conclusiones fundamentales sobre la seguridad de activos:
