@@ -67,15 +67,15 @@ Tras lanzar el escaneo, monitorizo la pestaña de hallazgos. Una auditoría con 
 
 ### A. Vulnerabilidades y Parches (VPR)
 Gracias a las credenciales, Nessus puede listar todos los programas instalados y compararlos con su base de datos.
-* **hallazgos:** observo los parches de seguridad faltantes en el sistema operativo y en software de terceros (como navegadores o runtimes).
-* **priorización:** utilizo la métrica VPR para identificar qué vulnerabilidades tienen más probabilidad de ser explotadas en el mundo real.
+* **Hallazgos:** observo los parches de seguridad faltantes en el sistema operativo y en software de terceros (como navegadores o runtimes).
+* **Priorización:** utilizo la métrica VPR para identificar qué vulnerabilidades tienen más probabilidad de ser explotadas en el mundo real.
 
 ![Panel de vulnerabilidades detectadas](../img/caso_practico/resultados_vulnerabilidades.jpg)
 
 ### B. Análisis de Cumplimiento (Compliance)
 Esta es la parte más detallada de la práctica, donde veo el resultado de la política **CIS v4.0.0**.
-* **puntos de control:** los resultados muestran checks en **verde** (configuración segura), **amarillo** (advertencias) y **rojo** (fallos de configuración que requieren atención inmediata).
-* **detalles de remediación:** al hacer clic en un fallo, Nessus me indica exactamente qué valor de registro o directiva de grupo debo cambiar para cumplir con el estándar.
+* **Puntos de control:** los resultados muestran checks en **verde** (configuración segura), **amarillo** (advertencias) y **rojo** (fallos de configuración que requieren atención inmediata).
+* **Detalles de remediación:** al hacer clic en un fallo, Nessus me indica exactamente qué valor de registro o directiva de grupo debo cambiar para cumplir con el estándar.
 
 ![Dashboard de cumplimiento CIS Windows 11](../img/caso_practico/resultados_compliance.jpg)
 
