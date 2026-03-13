@@ -81,4 +81,11 @@ Si tienes alguna pregunta sobre este proyecto o quieres conectar para hablar sob
 * **🔗GitHub:** [Victor875](https://github.com/Victor875)
 
 ---
+## ⚖️ Licencia de Uso
+
+Este proyecto está bajo la **Licencia MIT**: puedes usar, copiar y modificar el contenido libremente, siempre que se mantenga el reconocimiento de la autoría original.
+
+> **Nota legal:** este laboratorio tiene fines estrictamente educativos. El uso de **Nessus Expert** está sujeto a los términos de servicio de **Tenable**. No me hago responsable del mal uso de las herramientas o técnicas descritas en este repositorio sobre entornos no autorizados.
+
+---
 *✨ Este proyecto fue realizado como parte de mi laboratorio de especialización en herramientas de seguridad ofensiva y defensiva.*
